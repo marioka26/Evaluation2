@@ -24,6 +24,15 @@
 ![Vue d'ensemble](images/Capture8.png)
 
 
+## Reférences
+![A system administrator's guide to getting started with Ansible - FAST!](https://www.redhat.com/en/blog/system-administrators-guide-getting-started-ansible-fast)
+![Documentation officielle d'Ansible](https://docs.ansible.com/)
+![Documentation ansible pour import_playbook](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_playbook_module.html)
+![Documentation ansible pour copy](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
+![Installation et Configuration de Ansible playbook](https://dev.to/dpuig/creating-an-ansible-playbook-to-install-and-configure-nginx-for-hosting-static-websites-3n6j)
+
+
+
 
 
 
