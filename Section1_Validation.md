@@ -1,5 +1,5 @@
 #SSH
-![ssh](/images/capture1.png)
+![ssh](/images/Capture1.png)
 
 
 
@@ -11,6 +11,7 @@
 ![Journaux du serveur Web.](images/capture7.png)
 
 ![Vue d'ensemble](images/capture8.png)
+
 
 
 
