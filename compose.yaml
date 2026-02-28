@@ -1,0 +1,131 @@
+# deploy.yaml
+---
+- name: "Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB"
+  hosts: prod
+  become: true
+  vars_files:
+    - ./vars/secret-variables.yaml  
+ # vars:
+  #  ansible_sudo_pass: *******
+  pre_tasks:
+    # Installation des dependances de Docker
+    - name: INSTALL DEPENDANCES DOCKER
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+        update_cache: yes
+      tags: docker
+
+    - name: AJOUT CLE GPG DE DOCKER
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      tags: docker
+
+    - name: AJOUT DEPOT APT DE DOCKER
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+      tags: docker
+
+  tasks:
+    #Installation de Docker
+    - name: INSTALL DOCKER
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+      tags: docker
+
+    #Installation de docker compose
+    - name: INSTALL DOCKER COMPOSE
+      apt:
+        name: docker-compose-plugin
+        state: present
+      tags: docker
+
+    #Demarrage du service Docker
+    - name: DEMARRE DOCKER
+      ansible.builtin.systemd_service:
+        state: started
+        name: docker
+      tags: docker
+
+    #**Création de la structure des repertoires sur le serveur
+    - name: CREATION REPERTOIRE RACINE  MONSITE
+      ansible.builtin.file:
+        path: /home/deploy/monsite
+        state: directory
+        mode: '0775'
+      tags: repertoire
+
+    - name: CREATION REPERTOIRE HTML
+      ansible.builtin.file:
+        path: /home/deploy/monsite/html
+        state: directory
+        mode: '0775'
+      tags: repertoire
+
+    - name: CREATION REPERTOIRE CONF
+      ansible.builtin.file:
+        path: /home/deploy/monsite/conf
+        state: directory
+        mode: '0775'
+      tags: repertoire  
+
+    - name: CREATION REPERTOIRE PHP
+      ansible.builtin.file:
+        path: /home/deploy/monsite/php
+        state: directory
+        mode: '0775'
+      tags: repertoire
+
+    #* Copie des fichiers sur le serveur pour les services Docker Compose
+    #
+    #**Copie le fichier docker-compose dans le repertoire monsite
+    - name: COPIE DU FICHIER docker-compose.yaml
+      copy:
+        src: docker-compose.yaml
+        dest: /home/deploy/monsite/docker-compose.yaml
+      tags: fichier
+
+    #**Copie default.con le fichier de configuration de Nginx dans le repertoire monsite/conf
+    - name: COPIE DU FICHIER default.conf
+      copy:
+        src: monsite/conf/default.conf
+        dest: /home/deploy/monsite/conf/default.conf
+      tags: fichier
+
+    #**Copie le fichier index.php dans le repertoire monsite/html
+    - name: COPIE DU FICHIER index.php
+      copy:
+        src: monsite/html/index.php
+        dest: /home/deploy/monsite/html/index.php
+      tags: fichier
+    
+    #**Copie le fichier d'installation de php-fpm, dans le repertoire monsite/php
+    - name: COPIE DU FICHIER Dockerfile
+      copy:
+        src: php/Dockerfile
+        dest: /home/deploy/monsite/php/Dockerfile
+      tags: fichier
+
+
+    #*Lancement de l'Application web avec Docker compose up
+    - name : Execute Docker Compose up
+      community.docker.docker_compose_v2:
+        project_src: /home/deploy/monsite
+        state: present
+      tags: lancement
+
+    #*Arret de l'Application wev avec Docker compose down qui arrete et supprime les conteneurs
+    - name : Execute Docker Compose down
+      community.docker.docker_compose_v2:
+        project_src: /home/deploy/monsite
+        state: absent
+      tags: stop
+
