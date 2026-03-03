@@ -1062,3 +1062,137 @@ Origin: /home/deploy/codes/ansible/webapp2/deploy.yaml:126:7
     "changed": false,
     "ping": "pong"
 }
+2026-03-02 19:01:27,781 p=45136 u=deploy n=ansible ERROR| [ERROR]: Unexpected Exception, this is probably a bug: [Errno 2] No such file or directory: '/home/deploy/codes/ansible/webapp2/deploy.yaml'
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/cli/__init__.py", line 661, in cli_executor
+    exit_code = cli.run()
+  File "/usr/lib/python3/dist-packages/ansible/cli/vault.py", line 251, in run
+    context.CLIARGS['func']()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3/dist-packages/ansible/cli/vault.py", line 480, in execute_rekey
+    self.editor.rekey_file(f, self.new_encrypt_secret,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           self.new_encrypt_vault_id)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/ansible/parsing/vault/__init__.py", line 960, in rekey_file
+    prev = os.stat(filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/deploy/codes/ansible/webapp2/deploy.yaml'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/cli/__init__.py", line 670, in cli_executor
+    raise AnsibleError("Unexpected Exception, this is probably a bug.") from ex
+ansible.errors.AnsibleError: Unexpected Exception, this is probably a bug: [Errno 2] No such file or directory: '/home/deploy/codes/ansible/webapp2/deploy.yaml'
+
+
+2026-03-02 19:03:29,534 p=46191 u=deploy n=ansible ERROR| [ERROR]: Unexpected Exception, this is probably a bug: [Errno 2] No such file or directory: '/home/deploy/codes/ansible/webapp2/deploy.yaml'
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/cli/__init__.py", line 661, in cli_executor
+    exit_code = cli.run()
+  File "/usr/lib/python3/dist-packages/ansible/cli/vault.py", line 251, in run
+    context.CLIARGS['func']()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3/dist-packages/ansible/cli/vault.py", line 480, in execute_rekey
+    self.editor.rekey_file(f, self.new_encrypt_secret,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           self.new_encrypt_vault_id)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/ansible/parsing/vault/__init__.py", line 960, in rekey_file
+    prev = os.stat(filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/deploy/codes/ansible/webapp2/deploy.yaml'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/cli/__init__.py", line 670, in cli_executor
+    raise AnsibleError("Unexpected Exception, this is probably a bug.") from ex
+ansible.errors.AnsibleError: Unexpected Exception, this is probably a bug: [Errno 2] No such file or directory: '/home/deploy/codes/ansible/webapp2/deploy.yaml'
+
+
+2026-03-02 19:04:41,483 p=46807 u=deploy n=ansible ERROR| [ERROR]: Input is not vault encrypted data. for /home/deploy/codes/ansible/webapp2/compose.yaml
+
+2026-03-02 19:05:20,785 p=47136 u=deploy n=ansible ERROR| [ERROR]: Input is not vault encrypted data. for /home/deploy/codes/ansible/webapp2/compose.yaml
+
+2026-03-02 19:10:19,410 p=49789 u=deploy n=ansible INFO| Rekey successful
+2026-03-02 19:10:36,259 p=50038 u=deploy n=ansible ERROR| [ERROR]: the playbook: deploy.yaml could not be found
+
+2026-03-02 19:11:02,899 p=50198 u=deploy n=ansible ERROR| [ERROR]: Invalid vars_files file '/home/deploy/codes/ansible/webapp2/./vars/secret-variables.yaml': Decryption failed (no vault secrets were found that could decrypt).
+
+Invalid vars_files file '/home/deploy/codes/ansible/webapp2/./vars/secret-variables.yaml'.
+
+<<< caused by >>>
+
+Decryption failed (no vault secrets were found that could decrypt).
+Origin: /home/deploy/codes/ansible/webapp2/vars/secret-variables.yaml
+
+
+2026-03-02 19:11:12,688 p=50320 u=deploy n=ansible INFO| PLAY [:Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB] ***************
+2026-03-02 19:11:12,733 p=50320 u=deploy n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-02 19:11:23,809 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:11:23,821 p=50320 u=deploy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] **********************************************
+2026-03-02 19:12:18,852 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:12:18,866 p=50320 u=deploy n=ansible INFO| TASK [AJOUT CLE GPG DE DOCKER] *************************************************
+2026-03-02 19:12:23,476 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:12:23,491 p=50320 u=deploy n=ansible INFO| TASK [AJOUT DEPOT APT DE DOCKER] ***********************************************
+2026-03-02 19:12:26,766 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:12:26,782 p=50320 u=deploy n=ansible INFO| TASK [INSTALL DOCKER] **********************************************************
+2026-03-02 19:12:37,446 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:12:37,471 p=50320 u=deploy n=ansible INFO| TASK [INSTALL DOCKER COMPOSE] **************************************************
+2026-03-02 19:12:42,751 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:12:42,764 p=50320 u=deploy n=ansible INFO| TASK [DEMARRE DOCKER] **********************************************************
+2026-03-02 19:12:47,943 p=50320 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:12:47,947 p=50320 u=deploy n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-02 19:12:47,947 p=50320 u=deploy n=ansible INFO| srv-web-01                 : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-02 19:13:25,584 p=51479 u=deploy n=ansible INFO| PLAY [:Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB] ***************
+2026-03-02 19:13:25,628 p=51479 u=deploy n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-02 19:13:32,932 p=51479 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:13:32,944 p=51479 u=deploy n=ansible INFO| TASK [CREATION REPERTOIRE RACINE  MONSITE] *************************************
+2026-03-02 19:13:35,404 p=51479 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:13:35,428 p=51479 u=deploy n=ansible INFO| TASK [CREATION REPERTOIRE HTML] ************************************************
+2026-03-02 19:13:37,163 p=51479 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:13:37,181 p=51479 u=deploy n=ansible INFO| TASK [CREATION REPERTOIRE CONF] ************************************************
+2026-03-02 19:13:39,342 p=51479 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:13:39,353 p=51479 u=deploy n=ansible INFO| TASK [CREATION REPERTOIRE PHP] *************************************************
+2026-03-02 19:13:41,797 p=51479 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:13:41,802 p=51479 u=deploy n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-02 19:13:41,802 p=51479 u=deploy n=ansible INFO| srv-web-01                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-02 19:14:15,842 p=51943 u=deploy n=ansible INFO| PLAY [:Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB] ***************
+2026-03-02 19:14:15,865 p=51943 u=deploy n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-02 19:14:22,088 p=51943 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:14:22,109 p=51943 u=deploy n=ansible INFO| TASK [COPIE DU FICHIER docker-compose.yaml] ************************************
+2026-03-02 19:14:27,039 p=51943 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:14:27,056 p=51943 u=deploy n=ansible INFO| TASK [COPIE DU FICHIER default.conf] *******************************************
+2026-03-02 19:14:30,914 p=51943 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:14:30,928 p=51943 u=deploy n=ansible INFO| TASK [COPIE DU FICHIER index.php] **********************************************
+2026-03-02 19:14:34,673 p=51943 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:14:34,694 p=51943 u=deploy n=ansible INFO| TASK [COPIE DU FICHIER Dockerfile] *********************************************
+2026-03-02 19:14:38,286 p=51943 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:14:38,290 p=51943 u=deploy n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-02 19:14:38,291 p=51943 u=deploy n=ansible INFO| srv-web-01                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-02 19:14:51,978 p=52299 u=deploy n=ansible INFO| PLAY [:Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB] ***************
+2026-03-02 19:14:52,003 p=52299 u=deploy n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-02 19:14:58,278 p=52299 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:14:58,291 p=52299 u=deploy n=ansible INFO| TASK [Execute Docker Compose up] ***********************************************
+2026-03-02 19:15:15,371 p=52299 u=deploy n=ansible INFO| changed: [srv-web-01]
+2026-03-02 19:15:15,374 p=52299 u=deploy n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-02 19:15:15,375 p=52299 u=deploy n=ansible INFO| srv-web-01                 : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-02 19:15:54,632 p=52857 u=deploy n=ansible INFO| PLAY [:Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB] ***************
+2026-03-02 19:15:54,654 p=52857 u=deploy n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-02 19:16:01,948 p=52857 u=deploy n=ansible INFO| ok: [srv-web-01]
+2026-03-02 19:16:01,968 p=52857 u=deploy n=ansible INFO| TASK [Execute Docker Compose down] *********************************************
+2026-03-02 19:16:21,922 p=52857 u=deploy n=ansible ERROR| [ERROR]: Task failed: Module failed: Error when processing container monsite-nginx-1: Error
+General error: Error response from daemon: cannot stop container: d7fd4ae6431b0bf9540132a6ca3b367db896f212394428978e37ef68f9bd60a7: permission denied
+Origin: /home/deploy/codes/ansible/webapp2/compose.yaml:126:7
+
+124
+125     #*Arret de l'Application wev avec Docker compose down qui arrete et supprime les conteneurs
+126     - name : Execute Docker Compose down
+          ^ column 7
+
+
+2026-03-02 19:16:21,931 p=52857 u=deploy n=ansible INFO| fatal: [srv-web-01]: FAILED! => {"actions": [{"id": "monsite-nginx-1", "status": "Stopping", "what": "container"}], "changed": true, "cmd": "/usr/bin/docker compose --ansi never --progress json --project-directory /home/deploy/monsite down --", "containers": [{"Command": "\"docker-entrypoint.sh mariadbd\"", "CreatedAt": "2026-02-27 00:41:12 +0000 UTC", "ExitCode": 0, "Health": "", "ID": "48328580a4b668adf9f7d523726ecb7666c477761b31a9e704c92eb4646da1b8", "Image": "mariadb", "Labels": {"com.docker.compose.config-hash": "9e481b605607e8c573346e24f5e916e541275eb7f287b17ffcd44827ccee7f12", "com.docker.compose.container-number": "1", "com.docker.compose.depends_on": "", "com.docker.compose.image": "sha256:2bb31c7c9ec56344894c3aa47b9218d9348de0be852858fdf4c25a5826bc3593", "com.docker.compose.oneoff": "False", "com.docker.compose.project": "monsite", "com.docker.compose.project.config_files": "/home/deploy/monsite/docker-compose.yaml", "com.docker.compose.project.working_dir": "/home/deploy/monsite", "com.docker.compose.service": "mariadb", "com.docker.compose.version": "5.0.2", "org.opencontainers.image.authors": "MariaDB Community", "org.opencontainers.image.base.name": "docker.io/library/ubuntu:noble", "org.opencontainers.image.description": "MariaDB Database for relational SQL", "org.opencontainers.image.documentation": "https://hub.docker.com/_/mariadb/", "org.opencontainers.image.licenses": "GPL-2.0", "org.opencontainers.image.ref.name": "ubuntu", "org.opencontainers.image.source": "https://github.com/MariaDB/mariadb-docker", "org.opencontainers.image.title": "MariaDB Database", "org.opencontainers.image.url": "https://github.com/MariaDB/mariadb-docker", "org.opencontainers.image.vendor": "MariaDB Community", "org.opencontainers.image.version": "12.2.2"}, "LocalVolumes": "1", "Mounts": "monsite_dbdata", "Name": "monsite-mariadb-1", "Names": ["monsite-mariadb-1"], "Networks": ["monsite_backend"], "Ports": "3306/tcp", "Project": "monsite", "Publishers": [{"Protocol": "tcp", "PublishedPort": 0, "TargetPort": 3306, "URL": ""}], "RunningFor": "4 days ago", "Service": "mariadb", "Size": "0B", "State": "running", "Status": "Up 20 minutes"}, {"Command": "\"/docker-entrypoint.sh nginx -g 'daemon off;'\"", "CreatedAt": "2026-02-28 00:55:43 +0000 UTC", "ExitCode": 0, "Health": "", "ID": "d7fd4ae6431b0bf9540132a6ca3b367db896f212394428978e37ef68f9bd60a7", "Image": "nginx:alpine", "Labels": {"com.docker.compose.config-hash": "7884dbeca50e2fee8dad15cd8998f480ceff8c15e7ca3da7bdee24ca761c0fff", "com.docker.compose.container-number": "1", "com.docker.compose.depends_on": "php:service_started:false", "com.docker.compose.image": "sha256:b76de378d57272a1dd9091a05dd548a3639dfb792ebdbf95d06704d2950afdea", "com.docker.compose.oneoff": "False", "com.docker.compose.project": "monsite", "com.docker.compose.project.config_files": "/home/deploy/monsite/docker-compose.yaml", "com.docker.compose.project.working_dir": "/home/deploy/monsite", "com.docker.compose.service": "nginx", "com.docker.compose.version": "5.0.2", "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>", "mariadb:service_started:false": ""}, "LocalVolumes": "0", "Mounts": "/home/deploy/monsite/conf,/home/deploy/monsite/html", "Name": "monsite-nginx-1", "Names": ["monsite-nginx-1"], "Networks": ["monsite_backend", "monsite_frontend"], "Ports": "0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp", "Project": "monsite", "Publishers": [{"Protocol": "tcp", "PublishedPort": 80, "TargetPort": 80, "URL": "0.0.0.0"}, {"Protocol": "tcp", "PublishedPort": 80, "TargetPort": 80, "URL": "::"}, {"Protocol": "tcp", "PublishedPort": 443, "TargetPort": 443, "URL": "0.0.0.0"}, {"Protocol": "tcp", "PublishedPort": 443, "TargetPort": 443, "URL": "::"}], "RunningFor": "2 days ago", "Service": "nginx", "Size": "0B", "State": "running", "Status": "Up About a minute"}, {"Command": "\"docker-php-entrypoint php-fpm\"", "CreatedAt": "2026-02-28 00:55:42 +0000 UTC", "ExitCode": 0, "Health": "", "ID": "07ce6355b3dc71f52896ff927d1c5db7252e6e19906e988f0e8f9148d421622a", "Image": "monsite-php", "Labels": {"com.docker.compose.config-hash": "0356254e7c56bf3069789dde308b8122002de2c64f9d365aa0fae47f2ec67f51", "com.docker.compose.container-number": "1", "com.docker.compose.depends_on": "", "com.docker.compose.image": "sha256:07013ae1b708544292efdb343b266910f3acb4a639a89c72cc3c252218cccb9c", "com.docker.compose.oneoff": "False", "com.docker.compose.project": "monsite", "com.docker.compose.project.config_files": "/home/deploy/monsite/docker-compose.yaml", "com.docker.compose.project.working_dir": "/home/deploy/monsite", "com.docker.compose.service": "php", "com.docker.compose.version": "5.0.2"}, "LocalVolumes": "0", "Mounts": "/home/deploy/monsite/html", "Name": "monsite-php-1", "Names": ["monsite-php-1"], "Networks": ["monsite_backend"], "Ports": "9000/tcp", "Project": "monsite", "Publishers": [{"Protocol": "tcp", "PublishedPort": 0, "TargetPort": 9000, "URL": ""}], "RunningFor": "2 days ago", "Service": "php", "Size": "0B", "State": "running", "Status": "Up About a minute"}], "images": [{"ContainerName": "monsite-mariadb-1", "Created": "2026-02-17T20:28:04.850301183Z", "ID": "sha256:2bb31c7c9ec56344894c3aa47b9218d9348de0be852858fdf4c25a5826bc3593", "Platform": "linux/amd64", "Repository": "mariadb", "Size": 335556550, "Tag": "latest"}, {"ContainerName": "monsite-nginx-1", "Created": "2026-02-05T00:07:18.369897286Z", "ID": "sha256:b76de378d57272a1dd9091a05dd548a3639dfb792ebdbf95d06704d2950afdea", "Platform": "linux/amd64", "Repository": "nginx", "Size": 62121152, "Tag": "alpine"}, {"ContainerName": "monsite-php-1", "Created": "2026-02-27T00:41:06.208689662Z", "ID": "sha256:07013ae1b708544292efdb343b266910f3acb4a639a89c72cc3c252218cccb9c", "LastTagTime": "2026-02-27T00:41:07.333264057Z", "Platform": "linux/amd64", "Repository": "monsite-php", "Size": 111318808, "Tag": "latest"}], "msg": "Error when processing container monsite-nginx-1: Error\nGeneral error: Error response from daemon: cannot stop container: d7fd4ae6431b0bf9540132a6ca3b367db896f212394428978e37ef68f9bd60a7: permission denied", "rc": 1, "stderr": "{\"id\":\"Container monsite-nginx-1\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container monsite-nginx-1\",\"status\":\"Error\",\"text\":\"Error\",\"details\":\"Error while Stopping\"}\n{\"error\":true,\"message\":\"Error response from daemon: cannot stop container: d7fd4ae6431b0bf9540132a6ca3b367db896f212394428978e37ef68f9bd60a7: permission denied\"}\n", "stderr_lines": ["{\"id\":\"Container monsite-nginx-1\",\"status\":\"Working\",\"text\":\"Stopping\"}", "{\"id\":\"Container monsite-nginx-1\",\"status\":\"Error\",\"text\":\"Error\",\"details\":\"Error while Stopping\"}", "{\"error\":true,\"message\":\"Error response from daemon: cannot stop container: d7fd4ae6431b0bf9540132a6ca3b367db896f212394428978e37ef68f9bd60a7: permission denied\"}"], "stdout": "", "stdout_lines": []}
+2026-03-02 19:16:21,933 p=52857 u=deploy n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-02 19:16:21,934 p=52857 u=deploy n=ansible INFO| srv-web-01                 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

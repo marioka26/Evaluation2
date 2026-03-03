@@ -1,6 +1,6 @@
-# deploy.yaml
+# compose.yaml
 ---
-- name: "Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB"
+- name: ":Deploiement d'une App web abev Nginx, PHP-FPM et MariaDB"
   hosts: prod
   become: true
   vars_files:
